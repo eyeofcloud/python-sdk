@@ -1,0 +1,3 @@
+[run]
+omit =
+  eyeofcloud/lib/pymmh3*

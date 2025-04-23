@@ -1,0 +1,2 @@
+ALLOWED_EXPERIMENT_STATUS=['Running']
+def is_experiment_running(experiment):' Determine for given experiment if experiment is running.\n\n  Args:\n    experiment: Object representing the experiment.\n\n  Returns:\n    Boolean representing if experiment is running or not.\n  ';return experiment.status in ALLOWED_EXPERIMENT_STATUS

@@ -1,0 +1,27 @@
+*.pyc
+MANIFEST
+.idea/*
+.*virtualenv/*
+
+# Output of building package
+*.egg-info
+dist
+build/*
+
+# Output of running coverage locally
+cover
+.coverage
+
+# From python-testapp.git
+.idea/
+.virt/
+datafile.json
+
+# vim swap files
+*.swp
+
+# OSX folder metadata
+*.DS_Store
+
+# Sphinx documentation
+docs/build/
