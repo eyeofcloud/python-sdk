@@ -1,0 +1,10 @@
+class UserProfile:
+	" Class encapsulating information representing a user's profile.\n\n   user_id: User's identifier.\n   experiment_bucket_map: Dict mapping experiment ID to dict consisting of the\n                          variation ID identifying the variation for the user.\n   ";USER_ID_KEY='user_id';EXPERIMENT_BUCKET_MAP_KEY='experiment_bucket_map';VARIATION_ID_KEY='variation_id'
+	def __init__(A,user_id,experiment_bucket_map=None,**B):A.user_id=user_id;A.experiment_bucket_map=experiment_bucket_map or{}
+	def __eq__(A,other):return A.__dict__==other.__dict__
+	def get_variation_for_experiment(A,experiment_id):' Helper method to retrieve variation ID for given experiment.\n\n    Args:\n      experiment_id: ID for experiment for which variation needs to be looked up for.\n\n    Returns:\n      Variation ID corresponding to the experiment. None if no decision available.\n    ';return A.experiment_bucket_map.get(experiment_id,{A.VARIATION_ID_KEY:None}).get(A.VARIATION_ID_KEY)
+	def save_variation_for_experiment(A,experiment_id,variation_id):" Helper method to save new experiment/variation as part of the user's profile.\n\n    Args:\n      experiment_id: ID for experiment for which the decision is to be stored.\n      variation_id: ID for variation that the user saw.\n    ";A.experiment_bucket_map.update({experiment_id:{A.VARIATION_ID_KEY:variation_id}})
+class UserProfileService:
+	' Class encapsulating user profile service functionality.\n  Override with your own implementation for storing and retrieving the user profile. '
+	def lookup(A,user_id):" Fetch the user profile dict corresponding to the user ID.\n\n    Args:\n      user_id: ID for user whose profile needs to be retrieved.\n\n    Returns:\n      Dict representing the user's profile.\n    ";return UserProfile(user_id).__dict__
+	def save(A,user_profile):" Save the user profile dict sent to this method.\n\n    Args:\n      user_profile: Dict representing the user's profile.\n    "

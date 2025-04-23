@@ -1,0 +1,1 @@
+class EyeofcloudDecisionMessage:SDK_NOT_READY='Eyeofcloud SDK not configured properly yet.';FLAG_KEY_INVALID='No flag was found for key "{}".';VARIABLE_VALUE_INVALID='Variable value for key "{}" is invalid or wrong type.'
